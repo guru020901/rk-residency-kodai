@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "react-day-picker/dist/style.css";
+
+@theme {
+  --color-kp-green: #1a472a;
+  --color-kp-gold: #d4af37;
+  --color-kp-cream: #f5f5f5;
+  --color-kp-dark: #111111;
+  --color-kp-gray: #f4f4f5;
+
+  --font-sans: var(--font-lato);
+  --font-serif: var(--font-playfair);
+}
+
+:root {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: var(--color-kp-green);
+  --rdp-background-color: var(--color-kp-gold);
+  --rdp-outline: 2px solid var(--color-kp-gold);
+  --rdp-outline-selected: 2px solid var(--color-kp-gold);
+}
+
+.rdp {
+  --rdp-day_selected-background-color: var(--color-kp-green);
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  margin: 0 auto !important;
+  /* Force centering */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rdp-month {
+  width: 100%;
+}
+
+.rdp-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Force dark text in the calendar primarily */
+.rdp-root {
+  --rdp-accent-color: #1a472a;
+  /* kp-green */
+  --rdp-background-color: #d4af37;
+  /* kp-gold */
+}
+
+.rdp-day,
+.rdp-nav_button,
+.rdp-head_cell,
+.rdp-caption_label {
+  color: #000000 !important;
+  /* Force Black */
+}
+
+.rdp-day_selected,
+.rdp-day_selected:hover {
+  color: #ffffff !important;
+  /* Force White on selection */
+  background-color: #1a472a !important;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: #f4f4f5 !important;
+}
+
+.rdp-day {
+  color: var(--color-kp-dark);
+}
+
+.rdp-day_selected {
+  color: white !important;
+}
+
+.rdp-caption_label {
+  color: var(--color-kp-green);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.rdp-nav_button {
+  color: var(--color-kp-dark);
+}
+
+body {
+  background-color: var(--color-kp-cream);
+  color: var(--color-kp-dark);
+}
