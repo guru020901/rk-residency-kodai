@@ -2,13 +2,23 @@ import { client } from '@/lib/sanity';
 import RenderSection from '@/components/RenderSection';
 import StickyBar from '@/components/StickyBar';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Instant revalidation for development
 
 async function getData() {
   const query = `
     {
       "page": *[_type == "page" && slug.current == "home"][0] {
-        pageBuilder[]
+        pageBuilder[]{
+          ...,
+          _type == "villaBlock" => {
+            ...,
+            rooms[]->
+          },
+          _type == "priceBlock" => {
+            ...,
+            rooms[]->
+          }
+        }
       },
       "settings": *[_type == "siteSettings"][0] {
         phoneNumber,

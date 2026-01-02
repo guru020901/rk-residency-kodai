@@ -56,6 +56,30 @@ export default defineType({
             description: 'Optional YouTube/Vimeo link for a room tour.',
         }),
         defineField({
+            name: 'maxCapacity',
+            title: 'Max Guests',
+            type: 'number',
+            initialValue: 2,
+        }),
+        defineField({
+            name: 'dimensions',
+            title: 'Room Dimensions',
+            type: 'string',
+            placeholder: 'e.g. 14x12 ft',
+        }),
+        defineField({
+            name: 'floorLevel',
+            title: 'Floor Level',
+            type: 'string',
+            placeholder: 'e.g. Ground Floor, First Floor',
+        }),
+        defineField({
+            name: 'recommendedFor',
+            title: 'Recommended For',
+            type: 'string',
+            placeholder: 'e.g. Couples, Elders, Families',
+        }),
+        defineField({
             name: 'amenities',
             title: 'Amenities',
             type: 'array',

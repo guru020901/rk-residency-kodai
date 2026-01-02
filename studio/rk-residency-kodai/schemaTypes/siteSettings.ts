@@ -38,12 +38,11 @@ export default defineType({
             ],
         }),
         defineField({
-            name: 'logo',
-            title: 'Logo',
+            name: 'favicon',
+            title: 'Browser Icon (Favicon)',
             type: 'image',
-            options: {
-                hotspot: true,
-            },
+            description: 'Upload a square image (e.g. 512x512 png) to be shown in browser tabs.',
+            options: { hotspot: true },
         }),
         defineField({
             name: 'phoneNumber',

@@ -7,9 +7,10 @@ interface BookingButtonProps {
     whatsappNumber: string;
     className?: string;
     children: React.ReactNode;
+    bookingType?: 'villa' | 'room';
 }
 
-export default function BookingButton({ roomTitle, whatsappNumber, className, children }: BookingButtonProps) {
+export default function BookingButton({ roomTitle, whatsappNumber, className, children, bookingType = 'room' }: BookingButtonProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -25,6 +26,7 @@ export default function BookingButton({ roomTitle, whatsappNumber, className, ch
                 onClose={() => setIsModalOpen(false)}
                 roomTitle={roomTitle}
                 whatsappNumber={whatsappNumber}
+                bookingType={bookingType}
             />
         </>
     );

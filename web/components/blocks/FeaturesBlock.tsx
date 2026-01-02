@@ -17,7 +17,7 @@ interface FeaturesBlockProps {
 
 export default function FeaturesBlock({ title, subtitle, features }: FeaturesBlockProps) {
     return (
-        <section className="py-24 px-6 bg-kp-cream">
+        <section className="py-12 md:py-24 px-6 bg-kp-cream">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl mx-auto">

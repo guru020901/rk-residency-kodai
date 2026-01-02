@@ -12,9 +12,10 @@ interface BookingModalProps {
     onClose: () => void;
     roomTitle?: string;
     whatsappNumber: string;
+    bookingType?: 'villa' | 'room';
 }
 
-export default function BookingModal({ isOpen, onClose, roomTitle, whatsappNumber }: BookingModalProps) {
+export default function BookingModal({ isOpen, onClose, roomTitle, whatsappNumber, bookingType = 'room' }: BookingModalProps) {
     const [range, setRange] = useState<DateRange | undefined>();
     const [adults, setAdults] = useState(2);
     const [children, setChildren] = useState(0);
@@ -45,19 +46,23 @@ export default function BookingModal({ isOpen, onClose, roomTitle, whatsappNumbe
         const startDate = format(range.from, 'dd MMM yyyy');
         const endDate = format(range.to, 'dd MMM yyyy');
 
-        const message = `*BOOKING INQUIRY*
+        const header = bookingType === 'villa' ? '*WHOLE VILLA BOOKING REQUEST*' : '*BOOKING INQUIRY*';
+        const itemLabel = bookingType === 'villa' ? '*Property:*' : '*Room:*';
+
+        const message = `${header}
 --------------------------------
-*Room:* ${roomTitle || 'General Stay'}
+${itemLabel} ${roomTitle || 'General Stay'}
 *Check-in:* ${startDate}
 *Check-out:* ${endDate}
 *Guests:* ${adults} Adults, ${children} Children
+*Total Details:* ${bookingType === 'villa' ? '(Entire 3BHK Property)' : '(Single Room)'}
 
 *GUEST DETAILS*
 Name: ${guestDetails.name}
 Mobile: ${guestDetails.mobile}
 Email: ${guestDetails.email}
 --------------------------------
-Please confirm availability and rates for these dates.`;
+Please confirm availability and rates.`;
 
         const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
@@ -100,7 +105,7 @@ Please confirm availability and rates for these dates.`;
                                     </p>
                                 </div>
                             </div>
-                            <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                            <button onClick={onClose} className="p-4 hover:bg-white/10 rounded-full transition-colors -mr-2">
                                 <X size={24} />
                             </button>
                         </div>

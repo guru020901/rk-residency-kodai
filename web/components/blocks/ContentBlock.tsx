@@ -19,7 +19,7 @@ export default function ContentBlock({ layout, title, content, image, ctaLabel, 
     const isImageRight = layout === 'image-right';
 
     return (
-        <section className="py-24 px-6 bg-white overflow-hidden">
+        <section className="py-12 md:py-24 px-6 bg-white overflow-hidden">
             <div className={`max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24 ${isCentered ? 'text-center' : ''}`}>
 
                 {/* Image Side (Left) */}

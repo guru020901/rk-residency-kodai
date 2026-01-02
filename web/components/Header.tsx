@@ -35,7 +35,7 @@ export default async function Header() {
                             priority
                         />
                     ) : (
-                        <span className="text-white font-serif text-2xl font-bold">{settings?.title || "Luxury Resort"}</span>
+                        <span className="text-white font-serif text-2xl font-bold">{settings?.title || "RK Residency"}</span>
                     )}
                 </Link>
 

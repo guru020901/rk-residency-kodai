@@ -30,7 +30,7 @@ export default function TestimonialBlock({ title, reviews }: TestimonialBlockPro
     if (!reviews || reviews.length === 0) return null;
 
     return (
-        <section className="py-24 bg-kp-green text-white relative overflow-hidden">
+        <section className="py-12 md:py-24 bg-kp-green text-white relative overflow-hidden">
             {/* Decorative Background Pattern */}
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
                 <Quote size={400} className="absolute -top-20 -left-20 rotate-12" />

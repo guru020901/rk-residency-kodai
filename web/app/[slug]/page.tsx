@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
 // 1. Generate Static Params (for SSG - Optional but good for performance)
+export const revalidate = 0; // Instant revalidation
+
 export async function generateStaticParams() {
     const query = `*[_type == "page"]{ "slug": slug.current }`;
     const slugs = await client.fetch(query);
@@ -18,7 +20,17 @@ async function getPageData(slug: string) {
     {
       "page": *[_type == "page" && slug.current == $slug][0] {
         title,
-        pageBuilder,
+        pageBuilder[]{
+          ...,
+          _type == "villaBlock" => {
+            ...,
+            rooms[]->
+          },
+          _type == "priceBlock" => {
+            ...,
+            rooms[]->
+          }
+        },
         seoDescription,
         seoKeywords
       },

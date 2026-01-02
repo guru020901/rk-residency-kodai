@@ -3,7 +3,7 @@ import { BookOpen } from 'lucide-react'
 
 export default defineType({
     name: 'contentBlock',
-    title: 'Content / Story Section',
+    title: 'About / Story (Content Section)',
     type: 'object',
     fields: [
         defineField({

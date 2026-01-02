@@ -14,7 +14,7 @@ export default function StickyBar({ phoneNumber, whatsappNumber }: StickyBarProp
         <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-kp-cream border-t border-kp-gold/30 shadow-2xl p-4 md:hidden flex justify-between gap-4"
+            className="fixed bottom-0 left-0 right-0 z-50 bg-kp-cream border-t border-kp-gold/30 shadow-2xl p-4 pb-6 md:hidden flex justify-between gap-4"
         >
             <a
                 href={`tel:${phoneNumber}`}

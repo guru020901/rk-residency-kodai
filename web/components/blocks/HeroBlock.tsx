@@ -31,7 +31,7 @@ export default function HeroBlock(props: HeroBlockProps) {
     }, [hasSlideshow, slides.length]);
 
     return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <section className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
             {/* Background Layer */}
             <div className="absolute inset-0 z-0 bg-kp-green">
                 {backgroundVideo ? (
@@ -40,7 +40,7 @@ export default function HeroBlock(props: HeroBlockProps) {
                         loop
                         muted
                         playsInline
-                        poster={slides[0] ? urlFor(slides[0]).width(1920).format('webp').url() : undefined}
+                        poster={slides[0] ? urlFor(slides[0]).width(800).format('webp').url() : undefined} // Optimized poster size
                         className="w-full h-full object-cover opacity-80"
                     >
                         <source src={backgroundVideo} type="video/mp4" />
@@ -57,7 +57,7 @@ export default function HeroBlock(props: HeroBlockProps) {
                         >
                             {slides[currentSlide] && (
                                 <Image
-                                    src={urlFor(slides[currentSlide]).width(1920).url()}
+                                    src={urlFor(slides[currentSlide]).width(1200).url()} // Responsive width
                                     alt={title}
                                     fill
                                     className="object-cover"
@@ -74,12 +74,12 @@ export default function HeroBlock(props: HeroBlockProps) {
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 text-center text-kp-cream max-w-4xl px-4">
+            <div className="relative z-10 text-center text-kp-cream max-w-4xl px-6">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="uppercase tracking-[0.3em] text-sm md:text-base mb-4 text-kp-gold"
+                    className="uppercase tracking-[0.2em] text-xs md:text-base mb-4 text-kp-gold font-bold"
                 >
                     {subtitle || "Welcome to Paradise"}
                 </motion.p>
@@ -87,7 +87,7 @@ export default function HeroBlock(props: HeroBlockProps) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 1 }}
-                    className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 drop-shadow-lg"
+                    className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 drop-shadow-lg leading-tight"
                 >
                     {title}
                 </motion.h1>

@@ -13,8 +13,8 @@ export default async function Footer() {
     const settings = await getSettings();
 
     return (
-        <footer className="bg-kp-green text-white pt-20 pb-10">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <footer className="bg-kp-dark text-white pt-12 md:pt-20 pb-24 md:pb-10 px-4 mt-auto">
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
 
                 {/* Brand Column */}
                 <div className="flex flex-col items-start">
@@ -27,7 +27,7 @@ export default async function Footer() {
                                 className="object-contain object-left"
                             />
                         ) : (
-                            <span className="font-serif text-2xl font-bold">{settings?.title || "Luxury Resort"}</span>
+                            <span className="font-serif text-2xl font-bold">{settings?.title || "RK Residency"}</span>
                         )}
                     </Link>
                     <p className="text-white/70 leading-relaxed max-w-sm">

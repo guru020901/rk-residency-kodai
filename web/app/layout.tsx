@@ -17,10 +17,30 @@ const lato = Lato({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Kodai Luxury Resort",
-  description: "Experience silence and mist in Kodaikanal.",
-};
+import { client, urlFor } from "@/lib/sanity";
+
+// Remove static metadata
+// export const metadata: Metadata = { ... }
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await client.fetch(`*[_type == "siteSettings"][0]{
+    title,
+    favicon
+  }`);
+
+  const title = settings?.title || "RK Residency Kodaikanal";
+  const icon = settings?.favicon ? urlFor(settings.favicon).width(128).height(128).url() : null;
+
+  return {
+    title: title,
+    description: "Experience the comfort of home with the luxury of a residency. The perfect homestay in Kodaikanal for families and groups.",
+    icons: icon ? {
+      icon: icon,
+      shortcut: icon,
+      apple: icon,
+    } : undefined,
+  };
+}
 
 export default function RootLayout({
   children,

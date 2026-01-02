@@ -6,6 +6,8 @@ import ContentBlock from './blocks/ContentBlock';
 import GalleryBlock from './blocks/GalleryBlock';
 import RoomListBlock from './blocks/RoomListBlock';
 import ContactBlock from './blocks/ContactBlock';
+import VillaPricingBlock from './blocks/VillaPricingBlock';
+import AboutBlock from './blocks/AboutBlock'; // Added import
 
 import AnimatedSection from './AnimatedSection';
 
@@ -19,7 +21,8 @@ const components: any = {
     galleryBlock: GalleryBlock,
     roomListBlock: RoomListBlock,
     contactBlock: ContactBlock,
-    // Add mediaBlock later
+    villaBlock: VillaPricingBlock,
+    aboutBlock: AboutBlock,
 };
 
 export default function RenderSection({ section, globalSettings }: { section: any, globalSettings?: any }) {

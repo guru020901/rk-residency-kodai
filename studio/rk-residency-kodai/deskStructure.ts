@@ -4,10 +4,12 @@ export const deskStructure = (S: any) =>
         .items([
             S.listItem()
                 .title('Global Settings')
+                .id('siteSettings-list-item')
                 .child(
                     S.document()
                         .schemaType('siteSettings')
                         .documentId('siteSettings')
+                        .views([S.view.form()])
                 ),
             S.divider(),
             ...S.documentTypeListItems().filter(

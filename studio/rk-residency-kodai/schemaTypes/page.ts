@@ -40,8 +40,10 @@ export default defineType({
                 { type: 'testimonialBlock' },
                 { type: 'galleryBlock' },
                 { type: 'mediaBlock' },
+                { type: 'villaBlock' },
                 { type: 'roomListBlock' },
                 { type: 'contactBlock' },
+                { type: 'aboutBlock' },
             ],
         }),
         defineField({
